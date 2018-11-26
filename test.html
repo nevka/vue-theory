@@ -111,6 +111,12 @@
             <hr>
             <hr>
 
+            <hr>
+            <h1 v-show="visible">I am visible!</h1>
+            <h2 v-show="!visible">You can't see me!</h2>
+            <button @click="visible = !visible">Toggle</button>
+            <hr>
+
         </div>
 
 
@@ -136,7 +142,7 @@
                     isActive: false,
                     color: 'blue',
                     height: 100,
-                    visible: false,
+                    visible: true,
                     typeVisible: "a"
                 },
                 computed: {
