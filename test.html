@@ -153,6 +153,11 @@
             <button @click="title = 'Update'">Update title</button>
             <hr>
 
+            <hr>
+            <h2 ref="heading">{{title}}</h2>
+            <button @click="updateTitle">Update title</button>
+            <hr>
+
         </div>
 
         <hr><hr><hr><hr><hr>
@@ -273,6 +278,11 @@
                     },
                     alertFast: function () {
                         alert('I am from app 1');
+                    },
+                    updateTitle: function () {
+                        this.title = "New title!!!";
+                        this.$refs.heading.style.color = 'red'; // предпочтительнее стандартного document.querySelector
+                        console.log(this.$refs);
                     }
                 }
             });
