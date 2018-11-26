@@ -78,6 +78,14 @@
             <div class="circle" :class="[color, {'red': isActive}]"></div> <!--приоритет - первый элемент массива-->
             <input type="text" v-model="color">
             <hr>
+
+            <hr>
+            <div class="circle" :style="circleClasses"></div>
+            <div class="circle" :style="[circleClasses, {'width': height+'px'}]"></div>
+            <input type="text" v-model="color">
+            <input type="text" v-model="height">
+            <hr>
+
         </div>
 
 
@@ -101,13 +109,20 @@
                     //inputValue: '',
                     inputValue: 'inputValue',
                     isActive: false,
-                    color: 'blue'
+                    color: 'blue',
+                    height: 100
                 },
                 computed: {
                     getCssClasses: function () {
                         return{
                             'red': this.isActive,
                             'green': !this.isActive
+                        }
+                    },
+                    circleClasses: function () {
+                        return{
+                            'background': this.color,
+                            'height': this.height + 'px'
                         }
                     }
                 },
