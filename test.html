@@ -43,6 +43,12 @@
             <hr>
             <input type="text" v-on:keyup.enter.space="alertValue">
             <hr>
+
+            <hr>
+            <h2><a :href="url">Google</a></h2>
+            <h2>Счетчик2  = {{counter2}}</h2>
+            <button @click="counter2++">Увеличить</button>
+            <hr>
         </div>
 
 
@@ -78,7 +84,6 @@
                         event.target.style.color = 'red';
                     },
                     riseCounterOn: function (num, str, event) {
-
                         this.counter3 += num;
                         this.title3 = str;
 
