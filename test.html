@@ -204,6 +204,11 @@
                         return this.condition = this.counter2 > 3 ? 'More than 3' : 'Less than 3';
                     }
                 },
+                watch: {
+                    counter2: function (value) {
+                      console.log(value);
+                  }
+                },
                 methods: {
                     changeName: function (event) {
                         this.name = event.target.value
