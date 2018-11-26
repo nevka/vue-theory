@@ -160,12 +160,21 @@
 
         </div>
 
+
         <hr><hr><hr><hr><hr>
 
 
         <div id="app2">
             <h2>{{title}}</h2>
             <button @click="updateFirstTitle">Update title app1</button>
+        </div>
+
+
+        <hr><hr><hr><hr><hr>
+
+
+        <div id="app3">
+            <!--<h2>{{title}}</h2>-->
         </div>
 
 
@@ -303,6 +312,15 @@
                     }
                 }
             });
+
+
+            var vue3 = new Vue({
+                data: {
+                    title: 'Hello I am Vue3',
+                },
+                template: '<div><h1>{{title}}</h1><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur consequuntur dolorem doloremque excepturi facere iste libero magni odit totam vitae!</p></div>'
+            });
+            vue3.$mount('#app3');
         </script>
 
     </body>
