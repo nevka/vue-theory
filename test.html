@@ -117,6 +117,27 @@
             <button @click="visible = !visible">Toggle</button>
             <hr>
 
+            <hr>
+            <ul>
+                <li v-for="(person, index) in people">{{index + 1}}. {{person.name}} - {{person.age}}</li>
+            </ul>
+            <ul>
+                <li v-for="(person, index) of people">{{index + 1}}. {{person.name}} - {{person.age}}</li>
+            </ul>
+            <ol>
+                <li v-for="num of 10">{{num}}</li>
+            </ol>
+            <ul>
+                <li v-for="value in person">{{value}}</li>
+            </ul>
+            <ul>
+                <li v-for="(value, key) in person">{{key}} - {{value}}</li>
+            </ul>
+            <ul>
+                <li v-for="(value, key, index) in person">{{key}} - {{value}} ({{index}})</li>
+            </ul>
+            <hr>
+
         </div>
 
 
@@ -143,7 +164,17 @@
                     color: 'blue',
                     height: 100,
                     visible: true,
-                    typeVisible: "a"
+                    typeVisible: "a",
+                    people: [
+                        {name: 'Vlad', age: 20},
+                        {name: 'Max', age: 26},
+                        {name: 'Elena', age: 50}
+                    ],
+                    person: {
+                        name: 'Max',
+                        age: 75,
+                        job: 'Frontend',
+                    }
                 },
                 computed: {
                     getCssClasses: function () {
