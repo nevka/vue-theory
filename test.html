@@ -26,6 +26,11 @@
             <button v-on:click="counter2++">Увеличить</button>
             <hr>
 
+            <hr>
+            <h2>{{title3}}  = {{counter3}}</h2>
+            <button v-on:click="riseCounterOn(5, 'Изменено на 5', $event)">Увеличить на 5</button>
+            <button v-on:click="riseCounterOn(10, 'Изменено на 10', $event)">Увеличить на 10</button>
+            <hr>
         </div>
 
 
@@ -41,7 +46,9 @@
                     url: 'http://google.com',
                     link: '<a href="http://google.com">google</a>',
                     counter: 0,
-                    counter2: 0
+                    counter2: 0,
+                    counter3: 0,
+                    title3: 'Счетчик'
                 },
                 methods: {
                     changeName: function (event) {
@@ -51,10 +58,22 @@
                         return 'I an function';
                     },
                     riseCounter: function () {
-                        this.counter++
+                        this.counter++;
                     },
                     onHover: function (event) {
                         event.target.style.color = 'red';
+                    },
+                    riseCounterOn: function (num, str, event) {
+
+                        this.counter3 += num;
+                        this.title3 = str;
+
+                        if(num === 5) {
+                            event.target.style.color = 'blue';
+                        }
+                        else if(num === 10) {
+                            event.target.style.color = 'green';
+                        }
                     }
                 }
             });
