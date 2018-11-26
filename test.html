@@ -162,6 +162,11 @@
             <button @click="doDestroy">Destroy</button>
             <hr>
 
+            <hr>
+            <my-counter></my-counter>
+            <my-counter v-for="c of 5"></my-counter>
+            <hr>
+
         </div>
 
 
@@ -182,8 +187,29 @@
         </div>
 
 
+
         <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
         <script>
+
+            Vue.component('my-counter', {
+                template: `
+                    <div style="border: 1px solid black; padding: 10px;">
+                        <h2>Счетчик из компонента = {{counter}}</h2>
+                        <button @click="counter++">Увеличить</button>
+                    </div>
+                `,
+                data: function () {
+                    return {
+                        counter: 0
+                    }
+                },
+                methods: {
+                    add: function () {
+                        this.counter++;
+                    }
+                }
+            });
+
             var vue1 = new Vue({
                 el: '#app',
                 data: {
