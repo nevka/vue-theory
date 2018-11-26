@@ -40,6 +40,9 @@
             </h2>
             <hr>
 
+            <hr>
+            <input type="text" v-on:keyup.enter.space="alertValue">
+            <hr>
         </div>
 
 
@@ -89,6 +92,11 @@
                     handleMouseMove: function (event) {
                         this.x = event.clientX;
                         this.y = event.clientY;
+                    },
+                    alertValue: function (event) {
+                        //if(event.keyCode === 13) {
+                            alert(event.target.value);
+                        //}
                     }
                 }
             });
