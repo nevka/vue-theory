@@ -49,6 +49,15 @@
             <h2>Счетчик2  = {{counter2}}</h2>
             <button @click="counter2++">Увеличить</button>
             <hr>
+
+            <hr>
+            <input type="text" @input="inputValue = $event.target.value" :value="inputValue">
+            <br>
+            <input type="text" v-model="inputValue">
+            <br>
+            <input type="text" v-model.lazy="inputValue">
+            <h2>{{inputValue}}</h2>
+            <hr>
         </div>
 
 
@@ -68,7 +77,9 @@
                     counter3: 0,
                     title3: 'Счетчик',
                     x: 0,
-                    y: 0
+                    y: 0,
+                    //inputValue: '',
+                    inputValue: 'inputValue'
                 },
                 methods: {
                     changeName: function (event) {
