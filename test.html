@@ -138,6 +138,16 @@
             </ul>
             <hr>
 
+            <hr>
+            <h2>Counter {{counter}} \ {{counter2}}</h2>
+            <h3>{{resultCondition()}}</h3>
+            <h3>{{resultConditionC}}</h3>
+            <button @click="add">Add</button>
+            <button @click="sub">Sub</button>
+            <button @click="counter2++">Add counter2</button>
+            <button @click="counter2--">Sub counter2</button>
+            <hr>
+
         </div>
 
 
@@ -174,7 +184,8 @@
                         name: 'Max',
                         age: 75,
                         job: 'Frontend',
-                    }
+                    },
+                    condition: ''
                 },
                 computed: {
                     getCssClasses: function () {
@@ -188,6 +199,9 @@
                             'background': this.color,
                             'height': this.height + 'px'
                         }
+                    },
+                    resultConditionC: function () {
+                        return this.condition = this.counter2 > 3 ? 'More than 3' : 'Less than 3';
                     }
                 },
                 methods: {
@@ -229,6 +243,15 @@
                             'green': !this.isActive
                         }
                     }*/
+                    add: function () {
+                        this.counter++;
+                    },
+                    sub: function () {
+                        this.counter--;
+                    },
+                    resultCondition: function () {
+                        return this.condition = this.counter > 3 ? 'More than 3' : 'Less than 3';
+                    }
                 }
             });
         </script>
