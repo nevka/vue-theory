@@ -183,13 +183,17 @@
 
 
         <div id="app3">
-            <!--<h2>{{title}}</h2>-->
+        </div>
+
+        <div id="app4">
+            <my-counter></my-counter>
         </div>
 
 
 
         <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
         <script>
+
 
             var dataObj = {
               counter: 0
@@ -203,10 +207,10 @@
                     </div>
                 `,
                 data: function () {
-                    /*return {
+                    return {
                         counter: 0
-                    }*/
-                    return dataObj;
+                    }
+                    //return dataObj;
                 },
                 methods: {
                     add: function () {
@@ -383,6 +387,35 @@
                 template: '<div><h1>{{title}}</h1><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur consequuntur dolorem doloremque excepturi facere iste libero magni odit totam vitae!</p></div>'
             });
             vue3.$mount('#app3');
+
+
+
+            var component = {
+                template: `
+                    <div style="border: 1px solid black; padding: 10px;">
+                        <h2>Счетчик из компонента = {{counter}}</h2>
+                        <button @click="counter++">Увеличить</button>
+                    </div>
+                `,
+                data: function () {
+                    return {
+                        counter: 0
+                    }
+                    //return dataObj;
+                },
+                methods: {
+                    add: function () {
+                        this.counter++;
+                    }
+                }
+            };
+
+            new Vue({
+                el: '#app4',
+                component: {
+                   'my-counter': component
+                }
+            });
         </script>
 
     </body>
